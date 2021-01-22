@@ -34,11 +34,15 @@ int main(int argc, const char** argv) {
 
     if (arg[0] != '-') {
       ERROR(
+          "\n"
           "Unknown input !!\n"
           "Please use 'project --help' for more information\n");
 
     } else if (MatchOpt(arg, "h", "help")) {
       PrintHelp();
+      exit(EXIT_SUCCESS);
+    } else if (MatchOpt(arg, "v", "version")) {
+      printf("project command line version " VERSION "\n");
       exit(EXIT_SUCCESS);
     }
   }
