@@ -44,6 +44,7 @@ set(PROJECT_SRC_DIR "${CMAKE_CURRENT_LIST_DIR}/src")
 
 set(HEADERS
   "${PROJECT_SRC_DIR}/utils.h"
+  "${PROJECT_SRC_DIR}/main.h"
   )
 
 set(SOURCES

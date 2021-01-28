@@ -12,6 +12,8 @@
 #ifndef PROJECT_UTILS_H_
 #define PROJECT_UTILS_H_
 
+namespace project {} // namespace project
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
