@@ -1,0 +1,4 @@
+nnoremap <F1> :w <bar> exec '!scripts\win\clean.bat'<CR>
+nnoremap <F2> :w <bar> exec '!scripts\win\gen_mingw.bat'<CR>
+nnoremap <F3> :w <bar> exec '!scripts\win\gen_vs.bat'<CR>
+nnoremap <F4> :w <bar> exec '!scripts\win\build.bat'<CR>

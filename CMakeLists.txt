@@ -15,9 +15,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall")
 # differentiation between debug and release builds.
 if (CMAKE_BUILD_TYPE STREQUAL "")
   set(CMAKE_BUILD_TYPE "Debug"
-    CACHE STRING "Choose the type of build, options are: None (CMAKE_CXX_FLAGS or CMAKE_C_FLAGS used) \"Debug\" \"Release\" \"RelWithDebInfo\" \"MinSizeRel\"."
-    FORCE)
+    CACHE STRING "Choose the type of build, options are: None (CMAKE_CXX_FLAGS or CMAKE_C_FLAGS used) \"Debug\" \"Release\" \"RelWithDebInfo\" \"MinSizeRel\"." FORCE)
 endif()
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Organize build folders
 set(PROJECT_PATH ${CMAKE_CURRENT_SOURCE_DIR})

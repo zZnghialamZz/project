@@ -10,9 +10,10 @@
 |  ========================================================================= */
 
 #include "main.h"
-#include "utils.h"
 
 #include <stdio.h>
+
+#include "utils.h"
 
 INTERNAL void Help() {
   printf("\n");
@@ -44,7 +45,7 @@ INTERNAL void Version() {
   printf("of the Software, and to permit persons to whom the Software is\n");
   printf("furnished to do so, subject to the following conditions: \n\n");
   printf("The above copyright notice and this permission notice shall be\n");
-  printf("included in all copies or substantial portions of the Software\n\m");
+  printf("included in all copies or substantial portions of the Software\n\n");
   printf("THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,\n");
   printf("EXPRESS OR IMPLIED,INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n");
   printf("MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n");
@@ -58,10 +59,13 @@ INTERNAL void Version() {
 }
 
 int main(int argc, const char** argv) {
-  // Init default
-  bool _git_init     = false;
-  bool _project_name = "";
-  bool _exe_name     = "";
+  // Git config status
+  bool _git_init = false;
+
+  // Default init variables
+  const char* _project_name = "";
+  const char* _exe_name     = "";
+  const char* _language     = "";
 
   // Handle args
   // ----
@@ -75,18 +79,28 @@ int main(int argc, const char** argv) {
           "\n"
           "Unknown input !!\n"
           "Please use 'project --help' for more information\n");
-
     else if (MatchOpt(arg, "h", "help"))
       Help();
-
     else if (MatchOpt(arg, "v", "version"))
       Version();
-
     else if (MatchOpt(arg, "g", "git"))
       _git_init = true;
-
+    else if (MatchOpt(arg, "n", "name"))
+      _project_name = NextArg(&argc, &argv);
+    else if (MatchOpt(arg, "e", "exe"))
+      _exe_name = NextArg(&argc, &argv);
+    else if (MatchOpt(arg, "l", "language"))
+      _language = NextArg(&argc, &argv);
     else
       ERROR("Invalid arguments '%s'", arg);
+  }
+  if (!_language) ERROR("Expect language settings!!");
+
+  printf("Creating project '%s' with executable name: %s",
+         _project_name,
+         _exe_name);
+
+  if (_git_init) {
   }
 
   return EXIT_SUCCESS;

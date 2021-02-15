@@ -32,5 +32,9 @@
 *.app
 
 # Generated folders
+.cache/
 bin/
 build/
+
+# Generated files
+compile_command.json
